@@ -1,0 +1,25 @@
+{% extends 'main/SameCode.html' %}
+{% load static %}
+{% block CSS %}<link rel="stylesheet" href="{% static 'main/CSS/main.css' %}">{% endblock %}
+
+{% block title %}
+    Fizmat
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="fizmat">
+        <h1>Fizmat University</h1>
+        <a href="https://t.me/fizmat_unv"> <button class="btn btn-link">https://t.me/fizmat_un </button></a>
+    </div>
+
+    {% for el in news %}
+    <div class="news">
+        <h4>{{ el.title }}</h4>
+        <p>{{el.subtitle}}</p>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}

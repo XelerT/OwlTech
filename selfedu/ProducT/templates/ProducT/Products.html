@@ -1,0 +1,32 @@
+{% extends 'main/SameCode.html'%}
+{% load static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'News/CSS/News.css' %}" xmlns:text-decoration="http://www.w3.org/1999/xhtml">{% endblock %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+{%block title%} Products {%endblock%}
+
+{%block body%}
+
+<div class="features">
+
+    <h1> Our Products</h1>
+    <p> </p>
+
+</div>
+
+{% for el in Products %}
+    <div class="News">
+        <img src="{{el.product_image.url}}" alt="product logo" width="140" height="80">
+        <a href="{% url 'products:detailed_product' el.id %}" style="text-decoration:none; color:black;"><h4>{{el.product_name}}</h4></a>
+        <a href="{% url 'products:detailed_product' el.id %}" style="text-decoration:none; color:black;"><p>{{el.product_descr}}</p></a>
+</div>
+{% endfor %}
+
+{% if request.user.is_admin %}
+<div class="Panel">
+    <a href="{% url 'products:creation_view' %}"> <i class="fas fa-pen"></i>New Product</a>
+</div>
+{% endif %}
+
+{%endblock%}
+

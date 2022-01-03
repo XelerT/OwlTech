@@ -1,0 +1,108 @@
+
+
+    body{
+        background: rgb(256, 256, 256);
+}
+
+    .banner{
+        border-bottom: 2px solid #4abdff;
+        float:top;
+        background: rgb(230, 0, 0);
+        width: 100%;
+        height: 10vh;
+
+    /*overflow:hidden;*/
+}
+
+    .banner .Logo{
+        width:180px;
+        height:80px;
+}
+
+    .banner .register{
+        margin-left: 80vh;
+        text-decoration: underline;
+        color: black;
+    }
+
+    .banner .login{
+        margin-left: 2vh;
+        text-decoration: underline;
+        color: black;
+    }
+
+    .banner .logout{
+        margin-left: 80vh;
+        text-decoration: underline;
+        color: black;
+    }
+
+    .banner ul{
+        margin-left: 150px;
+        list-style:none;
+        display:inline;
+        text-decoration: none;
+}
+
+    .banner ul li{
+        margin-top: 24px;
+        margin-left: 30px;
+        display:inline-block;
+        color: black;
+        text-decoration: none;
+        transition: transform .3s cubic-bezier(1,5,3,1);
+}
+
+    .banner ul li:hover{
+        text-decoration: none;
+        transform: scale(1.03);
+}
+
+
+     .bottom{
+        width: 100%;
+        border-top: 3px solid #4abdff;
+        bottom: 5px;
+        position: static;
+        margin-top: 5%;
+     }
+
+    h3{
+        margin-left: 40px;
+        font-size:25px;
+}
+
+    p1{
+        margin-top: 0px;
+        margin-left: 40px;
+        font-size:25px;
+}
+
+    main .features{
+        margin-top: 20px;
+        text-align: center;
+}
+
+    main .features h1{
+        font-size:35px;
+}
+
+    main .fizmat{
+        margin-top: 20px;
+        text-align: center;
+}
+
+    main .fizmat h1{
+        color:blue;
+        font-size:35px;
+}
+
+     main .news {
+        border: 2px solid #4abdff;
+        float: top;
+        margin-left: 100px;
+        text-align: center;
+        width: 80vh;
+    }
+
+

@@ -1,0 +1,36 @@
+{% extends 'main/SameCode.html'%}
+{% load static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'News/CSS/News.css' %}" xmlns:text-decoration="http://www.w3.org/1999/xhtml">{% endblock %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+{%block title%} News {%endblock%}
+
+{%block body%}
+
+<div class="features">
+
+    <h1> Latest News </h1>
+    <p> </p>
+
+</div>
+
+{% for el in News %}
+    <div class="News">
+        {% if instance.image %}
+        <img src="{{ el.Img }}" class="img-responsive">
+        {% endif %}
+        <a href="{% url 'news-detail' el.id %}" style="text-decoration:none; color:black;"><h4>{{el.title}}</h4></a>
+        <a href="{% url 'news-detail' el.id %}" style="text-decoration:none; color:black"><p>{{el.subtitle}}</p></a>
+</div>
+{% endfor %}
+
+{% if request.user %}
+{% if request.user.is_admin %}
+<div class="Panel">
+    <a href="{% url 'create' %}"> <i class="fas fa-pen"></i>New Article </a>
+</div>
+{% endif %}
+{% endif %}
+
+{%endblock%}
+

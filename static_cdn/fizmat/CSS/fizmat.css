@@ -1,0 +1,16 @@
+
+
+body{
+    background: rgb(256, 0, 0);
+/*background-image: url("main/Fizmat.png");*/
+}
+
+    main .fizmat{
+        margin-top: 50px;
+        text-align: center;
+}
+    main .fizmat h1{
+        color:blue;
+        font-size:35px;
+        margin-top: 40px;
+}

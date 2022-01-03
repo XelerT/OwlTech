@@ -1,0 +1,38 @@
+{% extends 'main/SameCode.html'%}
+{% load static %}
+{% block CSS %}<link rel="stylesheet" href="{% static 'News/CSS/News.css' %}">{% endblock %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+{%block title%} News {%endblock%}
+
+{%block body%}
+
+<div class="title">
+
+    <h1> {{article.title}} </h1>
+
+</div>
+
+<div class="subtitle">
+
+    <h4>{{article.subtitle }}</h4>
+
+</div>
+
+<div class="text">
+
+    <h6>{{article.text}}</h6>
+
+</div>
+
+<div class="Date">
+
+    <h5>{{article.date}}</h5>
+
+</div>
+
+<div class="Panel">
+    <a href="{% url 'create' %}"> <i class="fas fa-pen"></i>New Article </a>
+</div>
+
+{%endblock%}
+

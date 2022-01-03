@@ -1,0 +1,58 @@
+{% extends 'main/SameCode.html' %}
+{% load static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'main/CSS/main.css' %}" xmlns:text-decoration="http://www.w3.org/1999/xhtml">{% endblock %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+{%block title%} Log In {%endblock%}
+
+{%block body%}
+
+<div class="features">
+
+    <h1> Log In </h1>
+    <p> </p>
+
+</div>
+
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="card card-signin">
+		  <div class="card-body">
+		    <form class="form-signin" method="post">{% csrf_token %}
+				<div class="d-flex flex-column pb-3">
+				<img class="img-fluid mx-auto d-block" src="{% static 'main/img/LogoN1.png' %}">
+				</div>
+
+				<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+				<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+				{% for field in login_form %}
+				<p>
+				{% for error in field.errors %}
+				<p style="color: red">{{ error }}</p>
+				{% endfor %}
+				</p>
+				{% endfor %}
+				{% if login_form.non_field_errors %}
+				<div style="color: red">
+					<p>{{login_form.non_field_errors}}</p>
+				</div>
+
+				{% endif %}
+
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+
+				</form>
+
+              <div class="d-flex flex-column my-4">
+					<a class="m-auto" href="{% url 'password_reset' %}">Reset password</a>
+				</div>
+
+		  </div>
+		</div>
+
+	</div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,76 @@
+{% extends 'main/SameCode.html'%}
+{% load static %}
+{% load latexify %}
+{% include "latexify/scripts.html" %}
+<!--{% include 'latexify/stylesheets.html' %}-->
+{% load embed_video_tags %}
+{% block CSS %}<link rel="stylesheet" href="{% static 'News/CSS/News.css' %}">
+{% endblock %}
+<!--<script src="https://cdn.tiny.cloud/1/21qyk0dzoshxmq6hbubacdrtdl8jomw0wreg17slzaezkiks/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- <script>-->
+<!--      tinymce.init({-->
+<!--         selector: 'textarea#full-featured',-->
+<!--      });-->
+<!--    </script>-->
+{%block title%} Products {%endblock%}
+
+{%block body%}
+
+<div class="title">
+
+    <h1> {{product_name}} </h1>
+
+</div>
+
+<div class="text">
+
+    <h4>{{description}}</h4>
+
+<!--    <div>-->
+<!--    <div class="col-6 text-end"><span class="h4 fw-bold">${{ product_cost }}</span></div>-->
+<!--<button type="button" id="add-button" value="{{id}}" class="btn btn-secondary btn-sm">Добавить в корзину</button></div>-->
+
+<!--</div>-->
+
+
+
+
+<div class="Date">
+
+    <h5>{{product_creator}}</h5>
+
+</div>
+
+<div class="lessons" style="margin:15vh">
+<!--    {% video video 'medium' %}-->
+    <div class="conspect" style="position:center; margin-top: 5vh">
+<!--        {{ conspect | safe }}-->
+
+       {{content | safe}}
+
+    </div>
+</div>
+
+
+<script>
+    $(document).on('click', '#add-button', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url "basket:basket_add" %}',
+            data: {
+                id: $('#add-button').val(),
+                productqty: "1",
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+            },
+            success: function (json) {
+               document.getElementById("basket-qty").innerHTML = json.qty
+            },
+            error: function (xhr, errmsg, err) {}
+        });
+    })
+</script>
+
+{%endblock%}

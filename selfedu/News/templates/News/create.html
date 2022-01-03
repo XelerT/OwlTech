@@ -1,0 +1,27 @@
+{% extends 'main/SameCode.html'%}
+{% load static %}
+{% block CSS %}<link rel="stylesheet" href="{% static 'News/CSS/News.css' %}">{% endblock %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+{%block title%} News Creation {%endblock%}
+
+{%block body%}
+
+<div class="features">
+    <h4>Create new article</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{form.Img}}<br>
+        {{form.title}}<br>
+        {{form.subtitle}}<br>
+        {{form.text}}<br>
+        {{form.date}}<br>
+        <span>{{error}}</span>
+<!--        <input type="text" placeholder="Title" class="form-control"><br>-->
+<!--        <input type="text" placeholder="Subtitle" class="form-control"><br>-->
+<!--        <input type="text" placeholder="Text" class="form-control"><br>-->
+<!--        <input type="datetime-local" placeholder="Date" class="form-control"><br>-->
+        <button class="btn btn-success" type="submit">Add new article</button>
+    </form>
+</div>
+
+{%endblock%}
