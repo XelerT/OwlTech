@@ -170,10 +170,6 @@ WSGI_APPLICATION = 'selfedu.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DB_NAME = "selfedu"
-DB_USER = "xeler"
-DB_PASSWORD = "akzy95"
-
 DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
